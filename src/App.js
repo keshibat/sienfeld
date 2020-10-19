@@ -1,25 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Global, css } from '@emotion/core'
+import Navigation from './components/Navigation';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <>
+  <Global
+    styles={css`
+      body {
+              margin: 0;
+              padding: 0;
+              background: linear-gradient(90deg,rgba(92,45,215,1),rgba(52,135,248,1));
+            }
+          `}
+    />
+      <div>
+        <Navigation/>
+      </div>
+  </>
   );
 }
 
