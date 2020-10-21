@@ -4,6 +4,7 @@ import styled from '@emotion/styled'
 import Navigation from './components/Navigation'
 import Logo from './components/Logo'
 import ImageLinkForm from './components/ImageLinkForm'
+import Rank from './components/Rank'
 
 const GlobalStyle = css`
   body {
@@ -28,7 +29,9 @@ function App() {
         <Logo/>
         <Navigation/>
       </HeaderDiv>
+      <Rank/>
       <ImageLinkForm/>
+
   </>
   );
 }

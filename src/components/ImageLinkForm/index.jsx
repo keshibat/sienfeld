@@ -11,15 +11,18 @@ const FormDiv = styled.div(props => ({
   display: 'flex',
   justifyContent: 'center',
   width: '700px',
-  background: 'yellow',
   height: '50px',
+  background: 'yellow'
+
 }));
 
 const Input = styled.input(props => ({
 }));
-
 const Button = styled.button(props => ({
   backgroundColor: '#7B3CFF',
+    '&:hover': {
+        cursor: 'pointer',
+  },
 }));
 
 const ImageLinkForm = () => {
