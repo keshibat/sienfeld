@@ -1,6 +1,9 @@
 import React from 'react';
 import { Global, css } from '@emotion/core'
-import Navigation from './components/Navigation';
+import styled from '@emotion/styled'
+import Navigation from './components/Navigation'
+import Logo from './components/Logo'
+import ImageLinkForm from './components/ImageLinkForm'
 
 const GlobalStyle = css`
   body {
@@ -10,15 +13,22 @@ const GlobalStyle = css`
        }
 `;
 
+const HeaderDiv = styled.div(props => ({
+  display: 'flex',
+  justifyContent: 'space-between',
+}));
+
 function App() {
   return (
   <>
   <Global
     styles={GlobalStyle}
     />
-      <div>
+      <HeaderDiv>
+        <Logo/>
         <Navigation/>
-      </div>
+      </HeaderDiv>
+      <ImageLinkForm/>
   </>
   );
 }
