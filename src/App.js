@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Global, css } from '@emotion/core'
 import styled from '@emotion/styled'
+import Clarifai from 'clarifai'
 import Navigation from './components/Navigation'
 import Logo from './components/Logo'
 import ImageLinkForm from './components/ImageLinkForm'
@@ -19,7 +20,28 @@ const HeaderDiv = styled.div(props => ({
   justifyContent: 'space-between',
 }));
 
+const app = new Clarifai.App({
+ apiKey: 'f2680265925947aab7e4b7a36b58b318'
+});
+
 function App() {
+  const [ input, setInput ] = useState('')
+   const handleInputchange = (e) => {
+     setInput(e.target.value);
+     console.log(e.target.value);
+   }
+
+   const onButtonSubmit = () => {
+    console.log('click it');
+    app.models.predict('d02b4508df58432fbb84e800597b8959', "https://picsum.photos/id/237/200/300").then(
+      function(response) {
+        console.log(response);
+      },
+      function(error){
+        console.log(error)
+      });
+   }
+
   return (
   <>
   <Global
@@ -30,8 +52,7 @@ function App() {
         <Navigation/>
       </HeaderDiv>
       <Rank/>
-      <ImageLinkForm/>
-
+      <ImageLinkForm handleInputchange={handleInputchange} onButtonSubmit={onButtonSubmit}/>
   </>
   );
 }

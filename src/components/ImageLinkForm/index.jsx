@@ -25,14 +25,14 @@ const Button = styled.button(props => ({
   },
 }));
 
-const ImageLinkForm = () => {
+const ImageLinkForm = ({ handleInputchange, onButtonSubmit }) => {
   return (
     <Container>
       <div style={{marginBottom: '1.875rem'}}>{'This Magic Brain will detect faces in your pictures. Give it try'}</div>
       <FormDiv>
         <div style={{display: 'flex', alignItems: 'center'}}>
-          <div><Input type='text'></Input></div>
-          <div><Button>Detect</Button></div>
+          <div><Input type='text' onChange={handleInputchange}></Input></div>
+          <div><Button onClick={onButtonSubmit} >Detect</Button></div>
         </div>
       </FormDiv>
     </Container>
