@@ -6,6 +6,7 @@ import Navigation from './components/Navigation'
 import Logo from './components/Logo'
 import ImageLinkForm from './components/ImageLinkForm'
 import Rank from './components/Rank'
+import FaceRecognition from './components/FaceRecognition'
 
 const GlobalStyle = css`
   body {
@@ -25,14 +26,17 @@ const app = new Clarifai.App({
 });
 
 function App() {
-  const [ input, setInput ] = useState('')
+  const [ input, setInput ] = useState('');
+  const [ imageUrl, setImageUrl ] = useState('');
+
    const handleInputchange = (e) => {
-     setInput(e.target.value);
+     setInput({input: e.target.value});
      console.log(e.target.value);
    }
 
    const onButtonSubmit = () => {
-    console.log('click it');
+    setImageUrl({imageUrl: input})
+    console.log(imageUrl);
     app.models.predict('d02b4508df58432fbb84e800597b8959', "https://picsum.photos/id/237/200/300").then(
       function(response) {
         console.log(response);
@@ -53,6 +57,7 @@ function App() {
       </HeaderDiv>
       <Rank/>
       <ImageLinkForm handleInputchange={handleInputchange} onButtonSubmit={onButtonSubmit}/>
+      <FaceRecognition imageUrl={imageUrl} />
   </>
   );
 }
