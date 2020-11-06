@@ -22,7 +22,7 @@ const HeaderDiv = styled.div(props => ({
 }));
 
 const app = new Clarifai.App({
- apiKey: 'f2680265925947aab7e4b7a36b58b318'
+ apiKey: 'your api key'
 });
 
 function App() {
